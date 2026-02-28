@@ -62,3 +62,17 @@ padding:40px;
 background:#03050a;
 color:#aaa;
 }
+/* ================= PAGE TRANSITION ================= */
+
+body{
+opacity:0;
+transition:opacity .4s ease;
+}
+
+body.page-enter{
+opacity:1;
+}
+
+body.page-leave{
+opacity:0;
+}
