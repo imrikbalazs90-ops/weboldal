@@ -81,19 +81,38 @@ transform:translateY(-8px);
 box-shadow:0 0 30px #1da9ff55;
 }
 
-/* LOGO STRIP */
+/* ===== ANIMÁLT MÁRKA SLIDER ===== */
 
-.logos{
-display:flex;
-justify-content:center;
-gap:50px;
-flex-wrap:wrap;
-opacity:.7;
+.logo-slider{
+overflow:hidden;
+position:relative;
+width:100%;
+margin-top:40px;
 }
 
-.logos img{
-height:60px;
-filter:grayscale(1);
+.logo-track{
+display:flex;
+width:max-content;
+animation:scroll 25s linear infinite;
+}
+
+.logo-track img{
+width:200px;
+margin:0 30px;
+filter:grayscale(100%);
+opacity:.7;
+transition:.3s;
+}
+
+.logo-track img:hover{
+filter:none;
+opacity:1;
+transform:scale(1.1);
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
 }
 
 /* CTA */
@@ -165,14 +184,30 @@ color:#aaa;
 </section>
 
 <section class="section">
-<h2>Képviselt márkák</h2>
+<h2 style="text-align:center;">Képviselt márkák</h2>
 
-<div class="logos">
-<img src="https://dummyimage.com/150x60/999/fff&text=KLAUKE">
-<img src="https://dummyimage.com/150x60/999/fff&text=HILTI">
-<img src="https://dummyimage.com/150x60/999/fff&text=WEIDMÜLLER">
-<img src="https://dummyimage.com/150x60/999/fff&text=PHOENIX">
+<div class="logo-slider">
+<div class="logo-track">
+
+<img src="https://dummyimage.com/200x80/222/fff&text=KLAUKE">
+<img src="https://dummyimage.com/200x80/222/fff&text=HILTI">
+<img src="https://dummyimage.com/200x80/222/fff&text=WEIDMULLER">
+<img src="https://dummyimage.com/200x80/222/fff&text=PHOENIX+CONTACT">
+<img src="https://dummyimage.com/200x80/222/fff&text=SIEMENS">
+<img src="https://dummyimage.com/200x80/222/fff&text=WAGO">
+
+<!-- LOOP DUPLIKÁCIÓ -->
+
+<img src="https://dummyimage.com/200x80/222/fff&text=KLAUKE">
+<img src="https://dummyimage.com/200x80/222/fff&text=HILTI">
+<img src="https://dummyimage.com/200x80/222/fff&text=WEIDMULLER">
+<img src="https://dummyimage.com/200x80/222/fff&text=PHOENIX+CONTACT">
+<img src="https://dummyimage.com/200x80/222/fff&text=SIEMENS">
+<img src="https://dummyimage.com/200x80/222/fff&text=WAGO">
+
 </div>
+</div>
+
 </section>
 
 <section class="cta">
