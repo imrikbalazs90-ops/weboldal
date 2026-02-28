@@ -13,10 +13,9 @@
 /* ================= GLOBAL ================= */
 
 :root{
---bg:#eef3f7;
---card:#ffffff;
---accent:#0a84ff;
---text:#1b1f24;
+--bg:#0b1118;
+--card:#111a24;
+--accent:#1da9ff;
 --container:1200px;
 }
 
@@ -24,7 +23,7 @@ body{
 margin:0;
 font-family:Poppins;
 background:var(--bg);
-color:var(--text);
+color:white;
 overflow-x:hidden;
 }
 
@@ -42,13 +41,13 @@ top:0;
 width:100%;
 z-index:1000;
 transition:.4s;
-background:rgba(255,255,255,.55);
-backdrop-filter:blur(12px);
+background:rgba(15,25,40,.25);
+backdrop-filter:blur(10px);
 }
 
 nav.scrolled{
-background:white;
-box-shadow:0 6px 30px rgba(0,0,0,.12);
+background:rgba(10,15,25,.92);
+box-shadow:0 10px 40px rgba(0,0,0,.6);
 }
 
 .nav-inner{
@@ -59,7 +58,7 @@ height:70px;
 }
 
 nav a{
-color:#0a84ff;
+color:#7fd3ff;
 text-decoration:none;
 margin-left:25px;
 position:relative;
@@ -92,6 +91,8 @@ text-align:center;
 overflow:hidden;
 }
 
+/* VIDEO */
+
 .hero video{
 position:absolute;
 top:50%;
@@ -103,31 +104,34 @@ object-fit:cover;
 z-index:-2;
 }
 
-/* LIGHT CINEMATIC OVERLAY */
+/* CINEMATIC OVERLAY */
 
 .hero::after{
 content:"";
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(
-to bottom,
-rgba(255,255,255,.55),
-rgba(255,255,255,.85)
-);
+background:
+linear-gradient(to bottom,
+rgba(5,10,20,.65),
+rgba(5,10,20,.85));
 z-index:-1;
 }
+
+/* HERO TEXT */
 
 .hero h1{
 opacity:0;
 transform:translateY(40px);
-animation:heroFade 1.5s ease forwards;
-background:rgba(255,255,255,.75);
-padding:30px;
+animation:fadeHero 1.8s ease forwards;
+animation-delay:.6s;
+background:#00000066;
+padding:28px;
 border-radius:14px;
+max-width:850px;
 }
 
-@keyframes heroFade{
+@keyframes fadeHero{
 to{
 opacity:1;
 transform:translateY(0);
@@ -146,45 +150,40 @@ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 }
 
-/* CARDS */
-
 .card{
 background:var(--card);
 padding:30px;
-border-radius:14px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-opacity:0;
-transform:translateY(40px);
-transition:all .8s ease;
+border-radius:12px;
+transition:.4s;
 }
 
-.card.show{
-opacity:1;
-transform:translateY(0);
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 25px #1da9ff55;
 }
 
 /* ================= LOGO SLIDER ================= */
 
 .logo-slider{
 overflow:hidden;
-margin-top:40px;
 }
 
 .logo-track{
 display:flex;
 width:max-content;
-animation:scroll 35s linear infinite;
+animation:scroll 30s linear infinite;
 }
 
 .logo-track img{
 width:200px;
 margin:0 35px;
+filter:grayscale(100%);
 opacity:.7;
 transition:.3s;
 }
 
 .logo-track img:hover{
+filter:none;
 opacity:1;
 transform:scale(1.1);
 }
@@ -197,7 +196,7 @@ transform:scale(1.1);
 /* ================= CTA ================= */
 
 .cta{
-background:#ffffff;
+background:#08121f;
 text-align:center;
 padding:80px 20px;
 }
@@ -209,16 +208,15 @@ padding:16px 35px;
 border-radius:8px;
 color:white;
 cursor:pointer;
-font-size:16px;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-background:#f5f7fa;
+background:#05090e;
 text-align:center;
 padding:40px;
-color:#666;
+color:#aaa;
 }
 
 </style>
@@ -242,7 +240,7 @@ color:#666;
 </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO VIDEO -->
 
 <section class="hero">
 
@@ -263,17 +261,17 @@ color:#666;
 
 <div class="grid">
 
-<div class="card reveal">
+<div class="card">
 <h3>Ipari szerviz</h3>
 <p>Villamosipari és szaniter gépek javítása.</p>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <h3>Kábelkonfekcionálás</h3>
 <p>Professzionális kábel előkészítés.</p>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <h3>Műszaki tanácsadás</h3>
 <p>Ipari projektek támogatása.</p>
 </div>
@@ -292,19 +290,19 @@ color:#666;
 <div class="logo-slider">
 <div class="logo-track">
 
-<img src="https://dummyimage.com/200x80/ddd/000&text=KLAUKE">
-<img src="https://dummyimage.com/200x80/ddd/000&text=TIANZE">
-<img src="https://dummyimage.com/200x80/ddd/000&text=PFANNENBERG">
-<img src="https://dummyimage.com/200x80/ddd/000&text=WISKA">
-<img src="https://dummyimage.com/200x80/ddd/000&text=LICATEC">
-<img src="https://dummyimage.com/200x80/ddd/000&text=EISENACHER">
+<img src="https://dummyimage.com/200x80/222/fff&text=KLAUKE">
+<img src="https://dummyimage.com/200x80/222/fff&text=TIANZE">
+<img src="https://dummyimage.com/200x80/222/fff&text=PFANNENBERG">
+<img src="https://dummyimage.com/200x80/222/fff&text=WISKA">
+<img src="https://dummyimage.com/200x80/222/fff&text=LICATEC">
+<img src="https://dummyimage.com/200x80/222/fff&text=EISENACHER">
 
-<img src="https://dummyimage.com/200x80/ddd/000&text=KLAUKE">
-<img src="https://dummyimage.com/200x80/ddd/000&text=TIANZE">
-<img src="https://dummyimage.com/200x80/ddd/000&text=PFANNENBERG">
-<img src="https://dummyimage.com/200x80/ddd/000&text=WISKA">
-<img src="https://dummyimage.com/200x80/ddd/000&text=LICATEC">
-<img src="https://dummyimage.com/200x80/ddd/000&text=EISENACHER">
+<img src="https://dummyimage.com/200x80/222/fff&text=KLAUKE">
+<img src="https://dummyimage.com/200x80/222/fff&text=TIANZE">
+<img src="https://dummyimage.com/200x80/222/fff&text=PFANNENBERG">
+<img src="https://dummyimage.com/200x80/222/fff&text=WISKA">
+<img src="https://dummyimage.com/200x80/222/fff&text=LICATEC">
+<img src="https://dummyimage.com/200x80/222/fff&text=EISENACHER">
 
 </div>
 </div>
@@ -325,7 +323,7 @@ color:#666;
 
 <script>
 
-/* NAVBAR SCROLL */
+/* NAVBAR DARKEN */
 
 const nav=document.getElementById("navbar");
 
@@ -335,20 +333,6 @@ nav.classList.add("scrolled");
 }else{
 nav.classList.remove("scrolled");
 }
-});
-
-/* SCROLL REVEAL ANIMATION */
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-}
-});
-},{threshold:.2});
-
-document.querySelectorAll(".reveal").forEach(el=>{
-observer.observe(el);
 });
 
 </script>
