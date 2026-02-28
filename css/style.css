@@ -96,14 +96,8 @@ background:radial-gradient(circle, rgba(29,169,255,.35), transparent 70%);
 filter:blur(90px);
 animation:float 18s ease-in-out infinite;
 z-index:-1;
-}
-
-.glow.one{top:-120px;left:-150px;}
-.glow.two{bottom:-150px;right:-150px;animation-delay:6s;}
-
-@keyframes float{
-0%,100%{transform:translate(0,0);}
-50%{transform:translate(40px,30px);}
+transition:transform .15s linear;
+will-change:transform;
 }
 
 /* SMALL HERO */
