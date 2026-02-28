@@ -95,6 +95,7 @@ height:600px;
 background:radial-gradient(circle, rgba(29,169,255,.35), transparent 70%);
 filter:blur(90px);
 animation:float 18s ease-in-out infinite;
+z-index:-1;
 }
 
 .glow.one{top:-120px;left:-150px;}
