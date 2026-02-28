@@ -92,3 +92,15 @@ opacity:1;
 body.page-leave{
 opacity:0;
 }
+/* ===== SMALL HERO ===== */
+
+.small-hero{
+height:50vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+radial-gradient(circle at 20% 30%, rgba(29,169,255,.35), transparent 40%),
+linear-gradient(120deg,#05080f,#0a1420);
+}
