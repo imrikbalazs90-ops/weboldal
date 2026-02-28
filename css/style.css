@@ -175,3 +175,16 @@ padding:40px;
 background:#03050a;
 color:#aaa;
 }
+/* ===== PRO NAVBAR ===== */
+
+nav{
+transition:
+transform .35s ease,
+background .4s ease;
+}
+
+nav a.active{
+color:white;
+font-weight:600;
+border-bottom:2px solid #1da9ff;
+}
