@@ -13,8 +13,6 @@
 /* ================= GLOBAL ================= */
 
 :root{
---bg:#0b1118;
---card:#111a24;
 --accent:#1da9ff;
 --container:1200px;
 }
@@ -22,7 +20,7 @@
 body{
 margin:0;
 font-family:Poppins;
-background:var(--bg);
+background:#070b12;
 color:white;
 overflow-x:hidden;
 }
@@ -41,12 +39,12 @@ top:0;
 width:100%;
 z-index:1000;
 transition:.4s;
-background:rgba(15,25,40,.25);
-backdrop-filter:blur(10px);
+background:rgba(10,15,25,.45);
+backdrop-filter:blur(14px);
 }
 
 nav.scrolled{
-background:rgba(10,15,25,.92);
+background:rgba(10,15,25,.9);
 box-shadow:0 10px 40px rgba(0,0,0,.6);
 }
 
@@ -61,25 +59,9 @@ nav a{
 color:#7fd3ff;
 text-decoration:none;
 margin-left:25px;
-position:relative;
 }
 
-nav a::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-6px;
-width:0%;
-height:2px;
-background:var(--accent);
-transition:.3s;
-}
-
-nav a:hover::after{
-width:100%;
-}
-
-/* ================= HERO VIDEO ================= */
+/* ================= HERO ================= */
 
 .hero{
 height:100vh;
@@ -91,31 +73,45 @@ text-align:center;
 overflow:hidden;
 }
 
-/* VIDEO */
+/* BASE GRADIENT */
 
-.hero video{
-position:absolute;
-top:50%;
-left:50%;
-min-width:100%;
-min-height:100%;
-transform:translate(-50%,-50%);
-object-fit:cover;
-z-index:-2;
-}
-
-/* CINEMATIC OVERLAY */
-
-.hero::after{
+.hero::before{
 content:"";
 position:absolute;
 width:100%;
 height:100%;
 background:
-linear-gradient(to bottom,
-rgba(5,10,20,.65),
-rgba(5,10,20,.85));
-z-index:-1;
+radial-gradient(circle at 20% 30%, rgba(29,169,255,.35), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(29,169,255,.25), transparent 40%),
+linear-gradient(120deg,#05080f,#0a1420);
+z-index:-2;
+}
+
+/* MOVING GLOW BLOBS */
+
+.glow{
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle, rgba(29,169,255,.35), transparent 70%);
+filter:blur(80px);
+animation:float 18s ease-in-out infinite;
+}
+
+.glow.one{
+top:-100px;
+left:-150px;
+}
+
+.glow.two{
+bottom:-150px;
+right:-150px;
+animation-delay:6s;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0) translateX(0);}
+50%{transform:translateY(40px) translateX(30px);}
 }
 
 /* HERO TEXT */
@@ -123,12 +119,11 @@ z-index:-1;
 .hero h1{
 opacity:0;
 transform:translateY(40px);
-animation:fadeHero 1.8s ease forwards;
-animation-delay:.6s;
+animation:fadeHero 1.5s ease forwards;
+animation-delay:.5s;
 background:#00000066;
-padding:28px;
+padding:30px;
 border-radius:14px;
-max-width:850px;
 }
 
 @keyframes fadeHero{
@@ -138,7 +133,7 @@ transform:translateY(0);
 }
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTION ================= */
 
 .section{
 padding:120px 0;
@@ -151,15 +146,21 @@ gap:30px;
 }
 
 .card{
-background:var(--card);
+background:#111a24;
 padding:30px;
 border-radius:12px;
 transition:.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .card:hover{
-transform:translateY(-6px);
-box-shadow:0 0 25px #1da9ff55;
+box-shadow:0 0 30px #1da9ff55;
 }
 
 /* ================= LOGO SLIDER ================= */
@@ -177,13 +178,11 @@ animation:scroll 30s linear infinite;
 .logo-track img{
 width:200px;
 margin:0 35px;
-filter:grayscale(100%);
 opacity:.7;
 transition:.3s;
 }
 
 .logo-track img:hover{
-filter:none;
 opacity:1;
 transform:scale(1.1);
 }
@@ -196,9 +195,9 @@ transform:scale(1.1);
 /* ================= CTA ================= */
 
 .cta{
-background:#08121f;
 text-align:center;
 padding:80px 20px;
+background:#05080f;
 }
 
 button{
@@ -213,9 +212,9 @@ cursor:pointer;
 /* ================= FOOTER ================= */
 
 footer{
-background:#05090e;
 text-align:center;
 padding:40px;
+background:#04070c;
 color:#aaa;
 }
 
@@ -223,8 +222,6 @@ color:#aaa;
 </head>
 
 <body>
-
-<!-- NAV -->
 
 <nav id="navbar">
 <div class="container nav-inner">
@@ -240,19 +237,14 @@ color:#aaa;
 </div>
 </nav>
 
-<!-- HERO VIDEO -->
-
 <section class="hero">
 
-<video autoplay muted loop playsinline>
-<source src="https://cdn.coverr.co/videos/coverr-working-with-electrical-wires-5173/1080p.mp4" type="video/mp4">
-</video>
+<div class="glow one"></div>
+<div class="glow two"></div>
 
 <h1>Ipari megoldások</h1>
 
 </section>
-
-<!-- SERVICES -->
 
 <section id="services" class="section">
 <div class="container">
@@ -261,17 +253,17 @@ color:#aaa;
 
 <div class="grid">
 
-<div class="card">
+<div class="card reveal">
 <h3>Ipari szerviz</h3>
 <p>Villamosipari és szaniter gépek javítása.</p>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <h3>Kábelkonfekcionálás</h3>
 <p>Professzionális kábel előkészítés.</p>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <h3>Műszaki tanácsadás</h3>
 <p>Ipari projektek támogatása.</p>
 </div>
@@ -279,8 +271,6 @@ color:#aaa;
 </div>
 </div>
 </section>
-
-<!-- BRANDS -->
 
 <section class="section">
 <div class="container">
@@ -310,8 +300,6 @@ color:#aaa;
 </div>
 </section>
 
-<!-- CTA -->
-
 <section class="cta">
 <h2>Kérjen ajánlatot most</h2>
 <button>Ajánlatkérés</button>
@@ -333,6 +321,20 @@ nav.classList.add("scrolled");
 }else{
 nav.classList.remove("scrolled");
 }
+});
+
+/* SCROLL REVEAL */
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:.2});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+observer.observe(el);
 });
 
 </script>
