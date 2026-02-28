@@ -10,52 +10,58 @@
 
 <style>
 
+/* ================= GLOBAL ================= */
+
+:root{
+--bg:#0b1118;
+--card:#111a24;
+--accent:#1da9ff;
+--container:1200px;
+}
+
 body{
 margin:0;
 font-family:Poppins;
-background:#0b1118;
+background:var(--bg);
 color:white;
+overflow-x:hidden;
 }
 
-/* NAV */
+.container{
+max-width:var(--container);
+margin:auto;
+padding:0 20px;
+}
+
+/* ================= NAVBAR ================= */
 
 nav{
 position:fixed;
 top:0;
-left:0;
 width:100%;
 z-index:1000;
-
-background:rgba(15,25,40,0.55);
-backdrop-filter:blur(14px);
--webkit-backdrop-filter:blur(14px);
-
-border-bottom:1px solid rgba(255,255,255,0.08);
-box-shadow:0 8px 32px rgba(0,0,0,0.25);
+transition:.4s;
+background:rgba(15,25,40,.35);
+backdrop-filter:blur(10px);
 }
 
-/* belső konténer */
+nav.scrolled{
+background:rgba(10,15,25,.92);
+box-shadow:0 10px 40px rgba(0,0,0,.6);
+}
 
-nav .nav-container{
-max-width:1200px;
-margin:0 auto;
+.nav-inner{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 20px;
+height:70px;
 }
 
 nav a{
 color:#7fd3ff;
 text-decoration:none;
 margin-left:25px;
-font-weight:500;
 position:relative;
-transition:.3s;
-}
-
-nav a:hover{
-color:white;
 }
 
 nav a::after{
@@ -65,7 +71,7 @@ left:0;
 bottom:-6px;
 width:0%;
 height:2px;
-background:#1da9ff;
+background:var(--accent);
 transition:.3s;
 }
 
@@ -73,33 +79,49 @@ nav a:hover::after{
 width:100%;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
 height:100vh;
-background:url("https://images.unsplash.com/photo-1581091870627-3d4c29a1c1b7") center/cover;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero-bg{
+position:absolute;
+width:110%;
+height:110%;
+background:url("https://images.unsplash.com/photo-1581091870627-3d4c29a1c1b7") center/cover;
+transform:translateY(0);
+z-index:-1;
 }
 
 .hero h1{
-font-size:56px;
+opacity:0;
+transform:translateY(40px);
+animation:fadeHero 1.8s ease forwards;
+animation-delay:.5s;
 background:#00000088;
 padding:25px;
-border-radius:10px;
-max-width:900px;
-margin:auto;
+border-radius:12px;
+max-width:850px;
 }
 
-/* SECTION */
+@keyframes fadeHero{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ================= SECTION ================= */
 
 .section{
-padding:100px 20px;
-max-width:1200px;
-margin:0 auto;
-width:100%;
+padding:120px 0;
 }
 
 .grid{
@@ -109,35 +131,32 @@ gap:30px;
 }
 
 .card{
-background:#111a24;
+background:var(--card);
 padding:30px;
 border-radius:12px;
 transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 30px #1da9ff55;
+transform:translateY(-6px);
+box-shadow:0 0 25px #1da9ff55;
 }
 
-/* ===== ANIMÁLT MÁRKA SLIDER ===== */
+/* ================= LOGO SLIDER ================= */
 
 .logo-slider{
 overflow:hidden;
-position:relative;
-width:100%;
-margin-top:40px;
 }
 
 .logo-track{
 display:flex;
 width:max-content;
-animation:scroll 25s linear infinite;
+animation:scroll 30s linear infinite;
 }
 
 .logo-track img{
 width:200px;
-margin:0 30px;
+margin:0 35px;
 filter:grayscale(100%);
 opacity:.7;
 transition:.3s;
@@ -154,30 +173,29 @@ transform:scale(1.1);
 100%{transform:translateX(-50%);}
 }
 
-/* CTA */
+/* ================= CTA ================= */
 
 .cta{
-text-align:center;
 background:#08121f;
-padding:70px;
+text-align:center;
+padding:80px 20px;
 }
 
-.cta button{
-background:#1da9ff;
+button{
+background:var(--accent);
 border:none;
-padding:18px 35px;
-color:white;
-font-size:18px;
-cursor:pointer;
+padding:16px 35px;
 border-radius:8px;
+color:white;
+cursor:pointer;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
+background:#05090e;
 text-align:center;
 padding:40px;
-background:#05090e;
 color:#aaa;
 }
 
@@ -186,32 +204,41 @@ color:#aaa;
 
 <body>
 
-<nav>
-<div class="nav-container">
+<!-- NAV -->
 
-<div><b>Trend-elektro Kft.</b></div>
+<nav id="navbar">
+<div class="container nav-inner">
+
+<b>Trend-elektro Kft.</b>
 
 <div>
 <a href="#">Kezdőlap</a>
 <a href="#services">Szolgáltatások</a>
-<a href="#contact">Kapcsolat</a>
+<a href="#">Kapcsolat</a>
 </div>
 
 </div>
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
+<div class="hero-bg" id="heroBg"></div>
 <h1>Ipari megoldások</h1>
 </section>
 
+<!-- SERVICES -->
+
 <section id="services" class="section">
+<div class="container">
+
 <h2>Szolgáltatásaink</h2>
 
 <div class="grid">
 
 <div class="card">
 <h3>Ipari szerviz</h3>
-<p>Villamosipari és szaniter gépek javítása és karbantartása.</p>
+<p>Villamosipari és szaniter gépek javítása.</p>
 </div>
 
 <div class="card">
@@ -225,9 +252,14 @@ color:#aaa;
 </div>
 
 </div>
+</div>
 </section>
 
+<!-- BRANDS -->
+
 <section class="section">
+<div class="container">
+
 <h2 style="text-align:center;">Képviselt márkák</h2>
 
 <div class="logo-slider">
@@ -240,8 +272,6 @@ color:#aaa;
 <img src="https://dummyimage.com/200x80/222/fff&text=LICATEC">
 <img src="https://dummyimage.com/200x80/222/fff&text=EISENACHER">
 
-<!-- LOOP DUPLIKÁCIÓ -->
-
 <img src="https://dummyimage.com/200x80/222/fff&text=KLAUKE">
 <img src="https://dummyimage.com/200x80/222/fff&text=TIANZE">
 <img src="https://dummyimage.com/200x80/222/fff&text=PFANNENBERG">
@@ -252,7 +282,10 @@ color:#aaa;
 </div>
 </div>
 
+</div>
 </section>
+
+<!-- CTA -->
 
 <section class="cta">
 <h2>Kérjen ajánlatot most</h2>
@@ -262,6 +295,31 @@ color:#aaa;
 <footer>
 © 2026 Trend-elektro Kft.
 </footer>
+
+<script>
+
+/* NAVBAR DARKEN ON SCROLL */
+
+const nav = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+if(window.scrollY > 80){
+nav.classList.add("scrolled");
+}else{
+nav.classList.remove("scrolled");
+}
+});
+
+/* PARALLAX HERO */
+
+const heroBg = document.getElementById("heroBg");
+
+window.addEventListener("scroll", () => {
+let offset = window.scrollY;
+heroBg.style.transform = "translateY(" + offset * 0.3 + "px)";
+});
+
+</script>
 
 </body>
 </html>
