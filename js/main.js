@@ -49,3 +49,20 @@ link.classList.add("active");
 });
 
 });
+/* ===== AUTO COMPONENT LOADER ===== */
+
+async function loadComponent(id, file){
+const el = document.getElementById(id);
+if(!el) return;
+
+const res = await fetch(file);
+const html = await res.text();
+el.innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+loadComponent("navbar-placeholder","components/navbar.html");
+loadComponent("footer-placeholder","components/footer.html");
+
+});
