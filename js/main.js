@@ -8,51 +8,44 @@ window.scrollTo({top:0,behavior:'smooth'});
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-const links=document.querySelectorAll("a[href]");
+document.body.classList.add("page-enter");
 
-links.forEach(link=>{
+document.querySelectorAll("a[href]").forEach(link=>{
 
-const url=link.getAttribute("href");
-
-/* csak belső oldalak */
+const url = link.getAttribute("href");
 
 if(
 url &&
 !url.startsWith("#") &&
 !url.startsWith("http")
 ){
-
 link.addEventListener("click",function(e){
-
 e.preventDefault();
-
 document.body.classList.add("page-leave");
 
 setTimeout(()=>{
 window.location.href=url;
-},350);
-
+},300);
 });
 }
 
 });
 
-/* belépő animáció */
+/* ================= ACTIVE MENU FIX ================= */
 
-document.body.classList.add("page-enter");
-
-});
-/* ================= ACTIVE MENU ================= */
-
-const currentPage =
-window.location.pathname.split("/").pop() || "index.html";
+const path = window.location.pathname;
 
 document.querySelectorAll("nav a").forEach(link=>{
 
-const linkPage = link.getAttribute("href");
+const href = link.getAttribute("href");
 
-if(linkPage === currentPage){
+if(
+path.endsWith(href) ||
+(path.endsWith("/") && href==="index.html")
+){
 link.classList.add("active");
 }
+
+});
 
 });
