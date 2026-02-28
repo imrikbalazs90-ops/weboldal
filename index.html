@@ -17,6 +17,10 @@
 --container:1200px;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 font-family:Poppins;
@@ -55,6 +59,11 @@ align-items:center;
 height:70px;
 }
 
+.logo{
+cursor:pointer;
+font-weight:700;
+}
+
 nav a{
 color:#7fd3ff;
 text-decoration:none;
@@ -73,7 +82,7 @@ text-align:center;
 overflow:hidden;
 }
 
-/* BASE GRADIENT */
+/* gradient háttér */
 
 .hero::before{
 content:"";
@@ -87,31 +96,23 @@ linear-gradient(120deg,#05080f,#0a1420);
 z-index:-2;
 }
 
-/* MOVING GLOW BLOBS */
+/* glow */
 
 .glow{
 position:absolute;
 width:600px;
 height:600px;
 background:radial-gradient(circle, rgba(29,169,255,.35), transparent 70%);
-filter:blur(80px);
+filter:blur(90px);
 animation:float 18s ease-in-out infinite;
 }
 
-.glow.one{
-top:-100px;
-left:-150px;
-}
-
-.glow.two{
-bottom:-150px;
-right:-150px;
-animation-delay:6s;
-}
+.glow.one{top:-120px;left:-150px;}
+.glow.two{bottom:-150px;right:-150px;animation-delay:6s;}
 
 @keyframes float{
-0%,100%{transform:translateY(0) translateX(0);}
-50%{transform:translateY(40px) translateX(30px);}
+0%,100%{transform:translate(0,0);}
+50%{transform:translate(40px,30px);}
 }
 
 /* HERO TEXT */
@@ -121,19 +122,14 @@ opacity:0;
 transform:translateY(40px);
 animation:fadeHero 1.5s ease forwards;
 animation-delay:.5s;
-background:#00000066;
-padding:30px;
-border-radius:14px;
+background:none; /* ⭐ ÁTLÁTSZÓ */
 }
 
 @keyframes fadeHero{
-to{
-opacity:1;
-transform:translateY(0);
-}
+to{opacity:1;transform:translateY(0);}
 }
 
-/* ================= SECTION ================= */
+/* ================= SECTIONS ================= */
 
 .section{
 padding:120px 0;
@@ -165,9 +161,7 @@ box-shadow:0 0 30px #1da9ff55;
 
 /* ================= LOGO SLIDER ================= */
 
-.logo-slider{
-overflow:hidden;
-}
+.logo-slider{overflow:hidden;}
 
 .logo-track{
 display:flex;
@@ -207,6 +201,15 @@ padding:16px 35px;
 border-radius:8px;
 color:white;
 cursor:pointer;
+font-size:16px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+background:#04070c;
+text-align:center;
+padding:100px 20px;
 }
 
 /* ================= FOOTER ================= */
@@ -214,7 +217,7 @@ cursor:pointer;
 footer{
 text-align:center;
 padding:40px;
-background:#04070c;
+background:#03050a;
 color:#aaa;
 }
 
@@ -223,28 +226,32 @@ color:#aaa;
 
 <body>
 
+<!-- NAV -->
+
 <nav id="navbar">
 <div class="container nav-inner">
 
-<b>Trend-elektro Kft.</b>
+<div class="logo" onclick="scrollTopSmooth()">Trend-elektro Kft.</div>
 
 <div>
-<a href="#">Kezdőlap</a>
+<a href="#hero">Kezdőlap</a>
 <a href="#services">Szolgáltatások</a>
-<a href="#">Kapcsolat</a>
+<a href="#contact">Kapcsolat</a>
 </div>
 
 </div>
 </nav>
 
-<section class="hero">
+<!-- HERO -->
 
+<section class="hero" id="hero">
 <div class="glow one"></div>
 <div class="glow two"></div>
 
 <h1>Ipari megoldások</h1>
-
 </section>
+
+<!-- SERVICES -->
 
 <section id="services" class="section">
 <div class="container">
@@ -271,6 +278,8 @@ color:#aaa;
 </div>
 </div>
 </section>
+
+<!-- BRANDS -->
 
 <section class="section">
 <div class="container">
@@ -300,9 +309,19 @@ color:#aaa;
 </div>
 </section>
 
+<!-- CTA -->
+
 <section class="cta">
 <h2>Kérjen ajánlatot most</h2>
-<button>Ajánlatkérés</button>
+<button onclick="document.getElementById('contact').scrollIntoView()">Ajánlatkérés</button>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+<h2>Kapcsolat</h2>
+<p>Email: info@trend-elektro.hu</p>
+<p>Telefon: +36 30 000 0000</p>
 </section>
 
 <footer>
@@ -316,12 +335,14 @@ color:#aaa;
 const nav=document.getElementById("navbar");
 
 window.addEventListener("scroll",()=>{
-if(window.scrollY>80){
-nav.classList.add("scrolled");
-}else{
-nav.classList.remove("scrolled");
-}
+nav.classList.toggle("scrolled",window.scrollY>80);
 });
+
+/* SCROLL TOP LOGO */
+
+function scrollTopSmooth(){
+window.scrollTo({top:0,behavior:'smooth'});
+}
 
 /* SCROLL REVEAL */
 
