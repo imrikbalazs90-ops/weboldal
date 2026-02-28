@@ -24,21 +24,25 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-background:#0b1118dd;
-backdrop-filter:blur(10px);
 z-index:1000;
+
+background:rgba(15,25,40,0.55);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:1px solid rgba(255,255,255,0.08);
+box-shadow:0 8px 32px rgba(0,0,0,0.25);
 }
 
-/* NAV BELSŐ KONTÉNER */
+/* belső konténer */
 
-nav div{
+nav .nav-container{
 max-width:1200px;
 margin:0 auto;
-width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px;
+padding:18px 20px;
 }
 
 nav a{
@@ -46,6 +50,27 @@ color:#7fd3ff;
 text-decoration:none;
 margin-left:25px;
 font-weight:500;
+position:relative;
+transition:.3s;
+}
+
+nav a:hover{
+color:white;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
+background:#1da9ff;
+transition:.3s;
+}
+
+nav a:hover::after{
+width:100%;
 }
 
 /* HERO */
@@ -162,7 +187,7 @@ color:#aaa;
 <body>
 
 <nav>
-<div>
+<div class="nav-container">
 
 <div><b>Trend-elektro Kft.</b></div>
 
