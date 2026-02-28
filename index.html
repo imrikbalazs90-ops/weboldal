@@ -5,256 +5,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Trend-elektro Kft. | Ipari megoldások</title>
+<title>Trend-elektro Kft.</title>
 
-<meta name="description" content="Ipari szerviz, kábelkonfekcionálás és műszaki támogatás. Trend-elektro Kft.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 
-<style>
-
-/* ===== GLOBAL ===== */
-
-:root{
---accent:#1da9ff;
---container:1200px;
-}
-
-html{scroll-behavior:smooth;}
-
-body{
-margin:0;
-font-family:Poppins;
-background:#070b12;
-color:white;
-overflow-x:hidden;
-}
-
-.container{
-max-width:var(--container);
-margin:auto;
-padding:0 20px;
-}
-
-/* ===== NAVBAR ===== */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-z-index:1000;
-transition:.4s;
-background:rgba(10,15,25,.45);
-backdrop-filter:blur(14px);
-}
-
-nav.scrolled{
-background:rgba(10,15,25,.9);
-box-shadow:0 10px 40px rgba(0,0,0,.6);
-}
-
-.nav-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-height:70px;
-}
-
-.logo{
-cursor:pointer;
-font-weight:700;
-}
-
-nav a{
-color:#7fd3ff;
-text-decoration:none;
-margin-left:25px;
-transition:.3s;
-}
-
-nav a:hover{
-color:white;
-}
-
-/* ===== HERO ===== */
-
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
-overflow:hidden;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 30%, rgba(29,169,255,.35), transparent 40%),
-radial-gradient(circle at 80% 70%, rgba(29,169,255,.25), transparent 40%),
-linear-gradient(120deg,#05080f,#0a1420);
-z-index:-2;
-}
-
-.glow{
-position:absolute;
-width:600px;
-height:600px;
-background:radial-gradient(circle, rgba(29,169,255,.35), transparent 70%);
-filter:blur(90px);
-animation:float 18s ease-in-out infinite;
-}
-
-.glow.one{top:-120px;left:-150px;}
-.glow.two{bottom:-150px;right:-150px;animation-delay:6s;}
-
-@keyframes float{
-0%,100%{transform:translate(0,0);}
-50%{transform:translate(40px,30px);}
-}
-
-.hero h1{
-opacity:0;
-transform:translateY(40px);
-animation:fadeHero 1.5s ease forwards .5s;
-}
-
-@keyframes fadeHero{
-to{opacity:1;transform:translateY(0);}
-}
-
-/* ===== SECTIONS ===== */
-
-.section{padding:120px 0;}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.card{
-background:#111a24;
-padding:30px;
-border-radius:12px;
-opacity:0;
-transform:translateY(40px);
-transition:.5s;
-}
-
-.card.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.card:hover{
-box-shadow:0 0 30px #1da9ff55;
-}
-
-/* ===== LOGO SLIDER ===== */
-
-.logo-slider{overflow:hidden;}
-
-.logo-track{
-display:flex;
-width:max-content;
-animation:scroll 30s linear infinite;
-}
-
-.logo-track img{
-width:200px;
-margin:0 35px;
-opacity:.7;
-transition:.3s;
-}
-
-.logo-track img:hover{
-opacity:1;
-transform:scale(1.1);
-}
-
-@keyframes scroll{
-0%{transform:translateX(0);}
-100%{transform:translateX(-50%);}
-}
-
-/* ===== CTA ===== */
-
-.cta{
-text-align:center;
-padding:80px 20px;
-background:#05080f;
-}
-
-button{
-background:var(--accent);
-border:none;
-padding:16px 35px;
-border-radius:8px;
-color:white;
-cursor:pointer;
-font-size:16px;
-}
-
-/* ===== CONTACT ===== */
-
-.contact{
-background:#04070c;
-text-align:center;
-padding:100px 20px;
-}
-
-/* ===== FOOTER ===== */
-
-footer{
-text-align:center;
-padding:40px;
-background:#03050a;
-color:#aaa;
-}
-
-</style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-
-<nav id="navbar">
-<div class="container nav-inner">
-
-<div class="logo" onclick="scrollTopSmooth()">
-Trend-elektro Kft.
-</div>
-
-<div>
-<a href="#hero">Kezdőlap</a>
-<a href="szolgaltatasok.html">Szolgáltatások</a>
-<a href="#contact">Kapcsolat</a>
-</div>
-
-</div>
-</nav>
-
-<!-- HERO -->
+<div id="navbar-placeholder"></div>
 
 <section class="hero" id="hero">
 
 <div class="glow one"></div>
 <div class="glow two"></div>
 
-<h1>Ipari megoldások</h1>
+<h1>Ipari villamosipari megoldások</h1>
 
 </section>
 
-<!-- SERVICES -->
-
-<section id="services" class="section">
+<section class="section">
 <div class="container">
 
 <h2>Szolgáltatásaink</h2>
@@ -280,88 +51,16 @@ Trend-elektro Kft.
 </div>
 </section>
 
-<!-- BRANDS -->
-
-<section class="section">
-<div class="container">
-
-<h2 style="text-align:center;">Képviselt márkák</h2>
-
-<div class="logo-slider">
-<div class="logo-track">
-
-<img src="https://dummyimage.com/200x80/222/fff&text=KLAUKE">
-<img src="https://dummyimage.com/200x80/222/fff&text=TIANZE">
-<img src="https://dummyimage.com/200x80/222/fff&text=PFANNENBERG">
-<img src="https://dummyimage.com/200x80/222/fff&text=WISKA">
-<img src="https://dummyimage.com/200x80/222/fff&text=LICATEC">
-<img src="https://dummyimage.com/200x80/222/fff&text=EISENACHER">
-
-<img src="https://dummyimage.com/200x80/222/fff&text=KLAUKE">
-<img src="https://dummyimage.com/200x80/222/fff&text=TIANZE">
-<img src="https://dummyimage.com/200x80/222/fff&text=PFANNENBERG">
-<img src="https://dummyimage.com/200x80/222/fff&text=WISKA">
-<img src="https://dummyimage.com/200x80/222/fff&text=LICATEC">
-<img src="https://dummyimage.com/200x80/222/fff&text=EISENACHER">
-
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- CTA -->
-
 <section class="cta">
 <h2>Kérjen ajánlatot most</h2>
-<button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+<button onclick="location.href='kapcsolat.html'">
 Ajánlatkérés
 </button>
 </section>
 
-<!-- CONTACT -->
+<div id="footer-placeholder"></div>
 
-<section id="contact" class="contact">
-<h2>Kapcsolat</h2>
-<p>Email: info@trendelektro.hu</p>
-<p>Telefon: +36 20 440 0370</p>
-</section>
-
-<footer>
-© 2026 Trend-elektro Kft.
-</footer>
-
-<script>
-
-/* NAVBAR SCROLL */
-
-const nav=document.getElementById("navbar");
-
-window.addEventListener("scroll",()=>{
-nav.classList.toggle("scrolled",window.scrollY>80);
-});
-
-/* SCROLL TOP */
-
-function scrollTopSmooth(){
-window.scrollTo({top:0,behavior:'smooth'});
-}
-
-/* SCROLL REVEAL */
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-}
-});
-},{threshold:.2});
-
-document.querySelectorAll(".reveal").forEach(el=>{
-observer.observe(el);
-});
-
-</script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
