@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Trend-elektro Kft.</title>
+<title>Trend-elektro Kft. | Ipari megoldások</title>
 
+<meta name="description" content="Ipari szerviz, kábelkonfekcionálás és műszaki támogatás. Trend-elektro Kft.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= GLOBAL ================= */
+/* ===== GLOBAL ===== */
 
 :root{
 --accent:#1da9ff;
 --container:1200px;
 }
 
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
 margin:0;
@@ -35,7 +37,7 @@ margin:auto;
 padding:0 20px;
 }
 
-/* ================= NAVBAR ================= */
+/* ===== NAVBAR ===== */
 
 nav{
 position:fixed;
@@ -68,21 +70,24 @@ nav a{
 color:#7fd3ff;
 text-decoration:none;
 margin-left:25px;
+transition:.3s;
 }
 
-/* ================= HERO ================= */
+nav a:hover{
+color:white;
+}
+
+/* ===== HERO ===== */
 
 .hero{
 height:100vh;
-position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+position:relative;
 overflow:hidden;
 }
-
-/* gradient háttér */
 
 .hero::before{
 content:"";
@@ -95,8 +100,6 @@ radial-gradient(circle at 80% 70%, rgba(29,169,255,.25), transparent 40%),
 linear-gradient(120deg,#05080f,#0a1420);
 z-index:-2;
 }
-
-/* glow */
 
 .glow{
 position:absolute;
@@ -115,25 +118,19 @@ animation:float 18s ease-in-out infinite;
 50%{transform:translate(40px,30px);}
 }
 
-/* HERO TEXT */
-
 .hero h1{
 opacity:0;
 transform:translateY(40px);
-animation:fadeHero 1.5s ease forwards;
-animation-delay:.5s;
-background:none; /* ⭐ ÁTLÁTSZÓ */
+animation:fadeHero 1.5s ease forwards .5s;
 }
 
 @keyframes fadeHero{
 to{opacity:1;transform:translateY(0);}
 }
 
-/* ================= SECTIONS ================= */
+/* ===== SECTIONS ===== */
 
-.section{
-padding:120px 0;
-}
+.section{padding:120px 0;}
 
 .grid{
 display:grid;
@@ -145,9 +142,9 @@ gap:30px;
 background:#111a24;
 padding:30px;
 border-radius:12px;
-transition:.4s;
 opacity:0;
 transform:translateY(40px);
+transition:.5s;
 }
 
 .card.show{
@@ -159,7 +156,7 @@ transform:translateY(0);
 box-shadow:0 0 30px #1da9ff55;
 }
 
-/* ================= LOGO SLIDER ================= */
+/* ===== LOGO SLIDER ===== */
 
 .logo-slider{overflow:hidden;}
 
@@ -186,7 +183,7 @@ transform:scale(1.1);
 100%{transform:translateX(-50%);}
 }
 
-/* ================= CTA ================= */
+/* ===== CTA ===== */
 
 .cta{
 text-align:center;
@@ -204,7 +201,7 @@ cursor:pointer;
 font-size:16px;
 }
 
-/* ================= CONTACT ================= */
+/* ===== CONTACT ===== */
 
 .contact{
 background:#04070c;
@@ -212,7 +209,7 @@ text-align:center;
 padding:100px 20px;
 }
 
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 
 footer{
 text-align:center;
@@ -226,12 +223,14 @@ color:#aaa;
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 
 <nav id="navbar">
 <div class="container nav-inner">
 
-<div class="logo" onclick="scrollTopSmooth()">Trend-elektro Kft.</div>
+<div class="logo" onclick="scrollTopSmooth()">
+Trend-elektro Kft.
+</div>
 
 <div>
 <a href="#hero">Kezdőlap</a>
@@ -245,10 +244,12 @@ color:#aaa;
 <!-- HERO -->
 
 <section class="hero" id="hero">
+
 <div class="glow one"></div>
 <div class="glow two"></div>
 
 <h1>Ipari megoldások</h1>
+
 </section>
 
 <!-- SERVICES -->
@@ -313,15 +314,17 @@ color:#aaa;
 
 <section class="cta">
 <h2>Kérjen ajánlatot most</h2>
-<button onclick="document.getElementById('contact').scrollIntoView()">Ajánlatkérés</button>
+<button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+Ajánlatkérés
+</button>
 </section>
 
 <!-- CONTACT -->
 
 <section id="contact" class="contact">
 <h2>Kapcsolat</h2>
-<p>Email: info@trend-elektro.hu</p>
-<p>Telefon: +36 30 000 0000</p>
+<p>Email: info@trendelektro.hu</p>
+<p>Telefon: +36 20 440 0370</p>
 </section>
 
 <footer>
@@ -330,7 +333,7 @@ color:#aaa;
 
 <script>
 
-/* NAVBAR DARKEN */
+/* NAVBAR SCROLL */
 
 const nav=document.getElementById("navbar");
 
@@ -338,7 +341,7 @@ window.addEventListener("scroll",()=>{
 nav.classList.toggle("scrolled",window.scrollY>80);
 });
 
-/* SCROLL TOP LOGO */
+/* SCROLL TOP */
 
 function scrollTopSmooth(){
 window.scrollTo({top:0,behavior:'smooth'});
