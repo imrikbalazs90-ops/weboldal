@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>ElektroTech</title>
+<title>Trend-elektro</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -21,13 +21,24 @@ color:white;
 
 nav{
 position:fixed;
+top:0;
+left:0;
 width:100%;
-display:flex;
-justify-content:space-between;
-padding:20px 40px;
 background:#0b1118dd;
 backdrop-filter:blur(10px);
 z-index:1000;
+}
+
+/* NAV BELSŐ KONTÉNER */
+
+nav div{
+max-width:1200px;
+margin:0 auto;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
 }
 
 nav a{
@@ -53,6 +64,8 @@ font-size:56px;
 background:#00000088;
 padding:25px;
 border-radius:10px;
+max-width:900px;
+margin:auto;
 }
 
 /* SECTION */
@@ -149,11 +162,16 @@ color:#aaa;
 <body>
 
 <nav>
+<div>
+
 <div><b>Trend-elektro</b></div>
+
 <div>
 <a href="#">Kezdőlap</a>
 <a href="#services">Szolgáltatások</a>
 <a href="#contact">Kapcsolat</a>
+</div>
+
 </div>
 </nav>
 
