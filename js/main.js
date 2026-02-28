@@ -42,3 +42,17 @@ window.location.href=url;
 document.body.classList.add("page-enter");
 
 });
+/* ================= ACTIVE MENU ================= */
+
+const currentPage =
+window.location.pathname.split("/").pop() || "index.html";
+
+document.querySelectorAll("nav a").forEach(link=>{
+
+const linkPage = link.getAttribute("href");
+
+if(linkPage === currentPage){
+link.classList.add("active");
+}
+
+});
