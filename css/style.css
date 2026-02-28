@@ -57,6 +57,7 @@ justify-content:center;
 text-align:center;
 position:relative;
 overflow:hidden;
+z-index:0;
 }
 
 .hero::before{
