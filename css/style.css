@@ -298,3 +298,15 @@ background:rgba(0,0,0,0.65);
 z-index:-1;
 
 }
+
+.nav-links a.active {
+
+color: #4db3ff;
+
+font-weight: 600;
+
+border-bottom: 2px solid #4db3ff;
+
+padding-bottom: 4px;
+
+}
