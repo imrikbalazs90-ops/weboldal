@@ -352,10 +352,8 @@ margin-top:40px;
 .product-card{
 
 background:rgba(255,255,255,0.05);
-border-radius:10px;
-overflow:hidden;
-transition:0.3s;
-backdrop-filter:blur(4px);
+backdrop-filter:blur(6px);
+border-radius:12px;
 
 }
 
