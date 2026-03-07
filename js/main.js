@@ -1,6 +1,6 @@
-fetch("/weboldal/components/navbar.html")
+fetch(window.location.origin + '/components/navbar.html')
 .then(response => response.text())
 .then(data => {
-document.getElementById("navbar").innerHTML = data;
+    document.getElementById("navbar").innerHTML = data;
 })
 .catch(error => console.error("Navbar load error:", error));
