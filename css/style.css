@@ -310,3 +310,32 @@ border-bottom: 2px solid #4db3ff;
 padding-bottom: 4px;
 
 }
+
+.breadcrumb {
+
+margin-top: 20px;
+margin-bottom: 20px;
+font-size: 14px;
+color: #bcd3e6;
+
+}
+
+.breadcrumb a {
+
+color: #7fc6ff;
+text-decoration: none;
+
+}
+
+.breadcrumb a:hover {
+
+text-decoration: underline;
+
+}
+
+.breadcrumb span {
+
+color: white;
+font-weight: 500;
+
+}
