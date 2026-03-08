@@ -500,3 +500,41 @@ padding:10px 18px;
 border-radius:6px;
 text-decoration:none;
 }
+
+.product-image-box {
+
+background: rgba(255,255,255,0.08);
+
+backdrop-filter: blur(10px);
+
+border-radius: 16px;
+
+padding: 40px;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+border: 1px solid rgba(255,255,255,0.15);
+
+}
+
+.product-image-box img {
+
+max-width: 350px;
+
+height: auto;
+
+transition: transform 0.3s ease;
+
+}
+
+.product-image-box img:hover {
+
+transform: scale(1.05);
+
+}
