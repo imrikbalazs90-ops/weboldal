@@ -540,3 +540,21 @@ transition: transform 0.3s ease;
 .product-image-box:hover img {
 transform: scale(1.08);
 }
+
+.category-links a {
+color: white;
+text-decoration: none;
+font-weight: 500;
+}
+
+.category-links a:hover {
+text-decoration: underline;
+}
+
+.category-links a:visited {
+color: white;
+}
+
+.category-links a:active {
+color: white;
+}
