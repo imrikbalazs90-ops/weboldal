@@ -503,7 +503,11 @@ text-decoration:none;
 
 .product-image-box {
 
-background: rgba(255,255,255,0.08);
+background: linear-gradient(
+135deg,
+rgba(255,255,255,0.08),
+rgba(255,255,255,0.02)
+);
 
 backdrop-filter: blur(10px);
 
@@ -533,8 +537,8 @@ transition: transform 0.3s ease;
 
 }
 
-.product-image-box img:hover {
+.product-image-box img:hover img {
 
-transform: scale(1.05);
+transform: scale(1.08);
 
 }
